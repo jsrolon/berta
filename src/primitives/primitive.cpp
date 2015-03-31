@@ -1,18 +1,18 @@
 /*
- * Transform.cpp
+ * Primitive.cpp
  *
  *  Created on: Mar 31, 2015
  *      Author: jsrolon
  */
 
-#include "Transform.h"
+#include "primitive.h"
 
-Transform::Transform() {
+Primitive::Primitive() {
 	// TODO Auto-generated constructor stub
 
 }
 
-Transform::~Transform() {
+Primitive::~Primitive() {
 	// TODO Auto-generated destructor stub
 }
 

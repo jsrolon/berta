@@ -1,18 +1,18 @@
 /*
- * Normal.cpp
+ * Shape.cpp
  *
  *  Created on: Mar 31, 2015
  *      Author: jsrolon
  */
 
-#include "Normal.h"
+#include "shape.h"
 
-Normal::Normal() {
+Shape::Shape() {
 	// TODO Auto-generated constructor stub
 
 }
 
-Normal::~Normal() {
+Shape::~Shape() {
 	// TODO Auto-generated destructor stub
 }
 
