@@ -31,7 +31,9 @@
 #ifndef BERTA_H_
 #define BERTA_H_
 
-// Global Include Files
+/**
+ * Global include files
+ */
 #include <math.h>
 #include <stdlib.h>
 #define _GNU_SOURCE 1
@@ -49,7 +51,7 @@ using std::swap;
 using std::sort;
 
 /**
- * Forward declarations for all classes
+ * Forward declarations for all classes in berta
  */
 // Camera
 class Camera;
@@ -67,7 +69,10 @@ class Intersection;
 class Sampler;
 class Transform;
 
-// Global Inline Functions
+/**
+ * Global inline functions
+ */
+
 inline float Lerp(float t, float v1, float v2) {
     return (1.f - t) * v1 + t * v2;
 }
