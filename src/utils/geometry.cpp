@@ -7,3 +7,14 @@
 
 #include "geometry.h"
 
+Point::~Point() {
+
+}
+
+Vector::~Vector() {
+
+}
+
+Normal::~Normal() {
+
+}

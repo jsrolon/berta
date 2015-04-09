@@ -36,7 +36,6 @@
  */
 #include <math.h>
 #include <stdlib.h>
-#define _GNU_SOURCE 1
 #include <stdio.h>
 #include <string.h>
 #include <string>
@@ -70,13 +69,17 @@ class Sampler;
 class Transform;
 
 /**
+ * Global constants
+ */
+const float EPSILON = 0.0001;
+
+/**
  * Global inline functions
  */
 
 inline float Lerp(float t, float v1, float v2) {
     return (1.f - t) * v1 + t * v2;
 }
-
 
 inline float Clamp(float val, float low, float high) {
     if (val < low) return low;

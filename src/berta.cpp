@@ -1,12 +1,17 @@
 #include "berta.h"
 
 int main() {
-	// create a scene:
-	// 1. scene itself
-	// 2. world objects
-	// 3. camera & camera position
+	// define some objects
+	// specify a material for each object
+	// define some light sources
+	// define a window whose surface is covered by pixels
 
-	// create a renderer
-	// 1. ask the renderer to render the scene
+	// for each pixel
+	//   shoot rays towards the objects depending on the sample position
+	//	 compute the nearest hit point of the ray with objects
+	//	 if the ray hits an object
+	//	   use the object material material and light to compute color
+	//   else
+	//	   set color to background
 	return 0;
 }

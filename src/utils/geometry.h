@@ -450,6 +450,10 @@ inline float Dot(const Vector &v1, const Vector &v2) {
 	return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }
 
+inline float Dot(const Normal &v1, const Vector &v2) {
+	return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+}
+
 inline float AbsDot(const Vector &v1, const Vector &v2) {
 	return fabsf(Dot(v1, v2));
 }
@@ -511,10 +515,6 @@ inline Normal Normalize(const Normal &n) {
 
 inline Vector::Vector(const Normal &n) :
 		x(n.x), y(n.y), z(n.z) {
-}
-
-inline float Dot(const Normal &n1, const Vector &v2) {
-	return n1.x * v2.x + n1.y * v2.y + n1.z * v2.z;
 }
 
 inline float Dot(const Vector &v1, const Normal &n2) {
