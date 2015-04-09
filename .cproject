@@ -26,6 +26,7 @@
 							</builder>
 							<tool id="cdt.managedbuild.tool.macosx.c.linker.macosx.exe.debug.253356937" name="MacOS X C Linker" superClass="cdt.managedbuild.tool.macosx.c.linker.macosx.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.debug.547743" name="MacOS X C++ Linker" superClass="cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.debug">
+								<option id="macosx.cpp.link.option.flags.631475454" name="Linker flags" superClass="macosx.cpp.link.option.flags" value="-m32 -framework IOKit -framework Carbon -framework Cocoa -framework AudioToolbox -framework System -framework OpenGL -lwx_osx_cocoau_xrc-3.0 -lwx_osx_cocoau_webview-3.0 -lwx_osx_cocoau_html-3.0 -lwx_osx_cocoau_qa-3.0 -lwx_osx_cocoau_adv-3.0 -lwx_osx_cocoau_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.macosx.cpp.linker.input.832328965" superClass="cdt.managedbuild.tool.macosx.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -46,7 +47,18 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/scene}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/shapes}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/utils}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/local/Cellar/wxmac/3.0.2/include/wx-3.0"/>
+									<listOptionValue builtIn="false" value="/usr/local/Cellar/wxmac/3.0.2/lib/wx/include/osx_cocoa-unicode-3.0"/>
 								</option>
+								<option id="gnu.cpp.compiler.option.preprocessor.def.1205646658" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_FILE_OFFSET_BITS=64"/>
+									<listOptionValue builtIn="false" value="wxDEBUG_LEVEL=0"/>
+									<listOptionValue builtIn="false" value="WXUSINGDLL"/>
+									<listOptionValue builtIn="false" value="__WXMAC__"/>
+									<listOptionValue builtIn="false" value="__WXOSX__"/>
+									<listOptionValue builtIn="false" value="__WXOSX_COCOA__"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.other.other.1445716786" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -m32" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1433535918" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug.1484443060" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug">

@@ -52,6 +52,9 @@ using std::sort;
 /**
  * Forward declarations for all classes in berta
  */
+//wxwidgets
+class RenderThread;
+
 // Camera
 class Camera;
 class ViewPlane;

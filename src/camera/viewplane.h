@@ -12,8 +12,8 @@
 
 class ViewPlane {
 public:
-	int hRes;
-	int vRes;
+	int hres;
+	int vres;
 	float pxSize;
 
 	ViewPlane();
