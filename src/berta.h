@@ -63,6 +63,9 @@ class Ray;
 class Normal;
 class BBox;
 
+// Scene
+class Shape;
+
 // Utils
 class Intersection;
 class Sampler;

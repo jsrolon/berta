@@ -18,8 +18,4 @@ public:
 	virtual ~Shape();
 };
 
-Shape::~Shape() {
-
-}
-
 #endif /* SCENE_SHAPE_H_ */
