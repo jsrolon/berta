@@ -12,8 +12,7 @@
 
 class Material {
 public:
-	Material();
-	~Material();
+	virtual ~Material() {};
 };
 
 #endif /* SCENE_MATERIAL_H_ */

@@ -10,6 +10,7 @@
 
 #include "berta.h"
 #include "shape.h"
+#include "material.h"
 
 class Primitive {
 private:
@@ -23,7 +24,9 @@ public:
 		return shape->intersect(ray, tmin, isct);
 	}
 
-	~Primitive();
+	~Primitive() {
+		;
+	}
 };
 
 #endif /* SCENE_PRIMITIVE_H_ */

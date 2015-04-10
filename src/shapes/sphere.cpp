@@ -8,7 +8,7 @@
 #include <sphere.h>
 
 Sphere::Sphere() :
-		center(*(new Point())), radius(1.0f) {
+		center(*(new Point())), radius(80.0f) {
 }
 
 bool Sphere::intersect(const Ray& ray, float& tmin, Intersection& isct) const {

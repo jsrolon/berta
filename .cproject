@@ -42,7 +42,6 @@
 								<option id="gnu.cpp.compiler.macosx.exe.debug.option.debugging.level.509465188" name="Debug Level" superClass="gnu.cpp.compiler.macosx.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.85417218" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/camera}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/materials}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/scene}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/shapes}&quot;"/>
@@ -50,6 +49,9 @@
 									<listOptionValue builtIn="false" value="/usr/local/Cellar/wxmac/3.0.2/include/wx-3.0"/>
 									<listOptionValue builtIn="false" value="/usr/local/Cellar/wxmac/3.0.2/lib/wx/include/osx_cocoa-unicode-3.0"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/gui}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/cameras}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/lights}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/tracing}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1205646658" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FILE_OFFSET_BITS=64"/>

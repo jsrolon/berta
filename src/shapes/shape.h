@@ -12,6 +12,7 @@
 
 class Shape {
 public:
+
 	virtual bool intersect(const Ray& ray, float& tmin,
 			Intersection& isct) const = 0;
 

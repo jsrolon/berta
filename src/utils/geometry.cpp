@@ -18,3 +18,7 @@ Vector::~Vector() {
 Normal::~Normal() {
 
 }
+
+Ray::~Ray() {
+
+}

@@ -378,20 +378,18 @@ void RenderCanvas::renderStart(void)
    
    wxGetApp().SetStatusText( wxT( "Building world..." ) );
    
-   w->build();
-   
    wxGetApp().SetStatusText( wxT( "Rendering..." ) );
    
    pixelsRendered = 0;
-   pixelsToRender = w->vp.hres * w->vp.vres;
+   pixelsToRender = w->film->hres * w->film->vres;
    
    //set the background
-//   wxBitmap bitmap(w->vp.hres, w->vp.vres, -1);
-//   wxMemoryDC dc;
-//   dc.SelectObject(bitmap);
-//   dc.SetBackground(*wxGREY_BRUSH);
-//   dc.Clear();
-//
+   wxBitmap bitmap(w->film->hres, w->film->vres, -1);
+   wxMemoryDC dc;
+   dc.SelectObject(bitmap);
+   dc.SetBackground(*wxGREY_BRUSH);
+   dc.Clear();
+
 //   wxBitmap tile(bg_xpm);
 //
 //   for(int x = 0; x < w->vp.hres; x += 16)
@@ -399,11 +397,11 @@ void RenderCanvas::renderStart(void)
 //      for(int y = 0; y < w->vp.vres; y += 16)
 //         dc.DrawBitmap(tile, x, y, FALSE);
 //   }
-//
-//   dc.SelectObject(wxNullBitmap);
-//
-//   wxImage temp = bitmap.ConvertToImage();
-//   SetImage(temp);
+
+   dc.SelectObject(wxNullBitmap);
+
+   wxImage temp = bitmap.ConvertToImage();
+   SetImage(temp);
 
    updateTimer.Start(250);
 
@@ -412,7 +410,7 @@ void RenderCanvas::renderStart(void)
    
    thread = new RenderThread(this, w);
    thread->Create();
-   w->film = thread;
+   w->film->setRenderThread(thread);
    thread->SetPriority(20);
    thread->Run();
 }

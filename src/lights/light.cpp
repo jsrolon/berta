@@ -1,18 +1,18 @@
 /*
- * camera.cpp
+ * light.cpp
  *
- *  Created on: Apr 9, 2015
+ *  Created on: Apr 10, 2015
  *      Author: jsrolon
  */
 
-#include <camera.h>
+#include <lights/light.h>
 
-Camera::Camera() {
+Light::Light() {
 	// TODO Auto-generated constructor stub
 
 }
 
-Camera::~Camera() {
+Light::~Light() {
 	// TODO Auto-generated destructor stub
 }
 

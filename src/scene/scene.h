@@ -9,25 +9,33 @@
 #define SCENE_SCENE_H_
 
 #include "berta.h"
-#include "viewplane.h"
+#include "film.h"
 #include "color.h"
+#include "geometry.h"
+#include "shape.h"
+#include "primitive.h"
+#include "light.h"
+#include "intersection.h"
+#include "camera.h"
 
 class Scene {
 public:
 	Camera* cam;
-	ViewPlane vp;
+	Film* film;
 
-	RenderThread* film; //connection to skeleton - wxRaytracer.h
+	vector<Primitive> primitives;
+	vector<Light> lights;
 
+	/**
+	 * The scene constructor *constructs* the scene
+	 */
 	Scene();
 
-	void build();
 	void render();
-	void display_pixel(const int x, const int y, const Color& raw_color) const;
 
-	Color max_to_one(const Color& c) const;
-	Color clamp_to_color(const Color& raw_color) const;
-
+	/**
+	 * The scene destructor *destructs* the scene
+	 */
 	~Scene();
 };
 
