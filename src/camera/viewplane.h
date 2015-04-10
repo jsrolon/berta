@@ -16,6 +16,11 @@ public:
 	int vres;
 	float pxSize;
 
+	float gamma;
+	float invGamma;
+
+	bool show_out_of_gamut;	// display red if RGBColor out of gamut
+
 	ViewPlane();
 	virtual ~ViewPlane();
 };

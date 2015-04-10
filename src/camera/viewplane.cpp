@@ -7,9 +7,9 @@
 
 #include <viewplane.h>
 
-ViewPlane::ViewPlane() {
-	// TODO Auto-generated constructor stub
-
+ViewPlane::ViewPlane() :
+		hres(400), vres(400), pxSize(1.0), gamma(1.0), invGamma(1.0), show_out_of_gamut(
+				true) {
 }
 
 ViewPlane::~ViewPlane() {

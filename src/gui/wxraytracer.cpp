@@ -20,7 +20,7 @@ bool wxraytracerapp::OnInit()
 {
    wxInitAllImageHandlers();
    
-   frame = new wxraytracerFrame(wxPoint(200,200), wxSize(700,500) );
+   frame = new wxraytracerFrame(wxPoint(200,200), wxSize(800,600) );
    frame->Centre();
    frame->Show(TRUE);
    SetTopWindow(frame);
@@ -386,24 +386,24 @@ void RenderCanvas::renderStart(void)
    pixelsToRender = w->vp.hres * w->vp.vres;
    
    //set the background
-   wxBitmap bitmap(w->vp.hres, w->vp.vres, -1);
-   wxMemoryDC dc;
-   dc.SelectObject(bitmap);
-   dc.SetBackground(*wxGREY_BRUSH);
-   dc.Clear();
-   
-   wxBitmap tile(bg_xpm);
-   
-   for(int x = 0; x < w->vp.hres; x += 16)
-   {
-      for(int y = 0; y < w->vp.vres; y += 16)
-         dc.DrawBitmap(tile, x, y, FALSE);
-   }
-   
-   dc.SelectObject(wxNullBitmap);
-   
-   wxImage temp = bitmap.ConvertToImage();
-   SetImage(temp);
+//   wxBitmap bitmap(w->vp.hres, w->vp.vres, -1);
+//   wxMemoryDC dc;
+//   dc.SelectObject(bitmap);
+//   dc.SetBackground(*wxGREY_BRUSH);
+//   dc.Clear();
+//
+//   wxBitmap tile(bg_xpm);
+//
+//   for(int x = 0; x < w->vp.hres; x += 16)
+//   {
+//      for(int y = 0; y < w->vp.vres; y += 16)
+//         dc.DrawBitmap(tile, x, y, FALSE);
+//   }
+//
+//   dc.SelectObject(wxNullBitmap);
+//
+//   wxImage temp = bitmap.ConvertToImage();
+//   SetImage(temp);
 
    updateTimer.Start(250);
 
@@ -412,7 +412,7 @@ void RenderCanvas::renderStart(void)
    
    thread = new RenderThread(this, w);
    thread->Create();
-   w->paintArea = thread;
+   w->film = thread;
    thread->SetPriority(20);
    thread->Run();
 }

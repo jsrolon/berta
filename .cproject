@@ -49,6 +49,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/Cellar/wxmac/3.0.2/include/wx-3.0"/>
 									<listOptionValue builtIn="false" value="/usr/local/Cellar/wxmac/3.0.2/lib/wx/include/osx_cocoa-unicode-3.0"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/gui}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1205646658" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FILE_OFFSET_BITS=64"/>
@@ -58,7 +59,7 @@
 									<listOptionValue builtIn="false" value="__WXOSX__"/>
 									<listOptionValue builtIn="false" value="__WXOSX_COCOA__"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.other.other.1445716786" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -m32" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.other.other.1445716786" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -m32" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1433535918" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug.1484443060" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug">

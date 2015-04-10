@@ -10,18 +10,23 @@
 
 #include "berta.h"
 #include "viewplane.h"
+#include "color.h"
 
 class Scene {
 public:
 	Camera* cam;
 	ViewPlane vp;
 
-	RenderThread* paintArea; //connection to skeleton - wxRaytracer.h
+	RenderThread* film; //connection to skeleton - wxRaytracer.h
 
 	Scene();
 
 	void build();
 	void render();
+	void display_pixel(const int x, const int y, const Color& raw_color) const;
+
+	Color max_to_one(const Color& c) const;
+	Color clamp_to_color(const Color& raw_color) const;
 
 	~Scene();
 };
