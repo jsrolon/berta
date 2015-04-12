@@ -10,12 +10,14 @@
 
 #include "berta.h"
 #include "geometry.h"
+#include "material.h"
 
 class Intersection {
 public:
 	bool hit;
 	Point point; // ALWAYS in world coordinates
 	Normal normal; // at hit point, world coords
+	Material* material;
 
 	Intersection();
 

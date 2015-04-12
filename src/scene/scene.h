@@ -20,6 +20,7 @@
 
 #include "sphere.h"
 #include "PerspectiveCamera.h"
+#include "SolidMaterial.h"
 
 class Scene {
 public:

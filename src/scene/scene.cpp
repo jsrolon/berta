@@ -12,14 +12,16 @@
  */
 Scene::Scene() {
 	film = new Film();
-	Point pp = Point(12,22,50);
-	Point p2 = Point(0,0,0);
-	Vector v = Vector(0,1,0);
-	cam = new PerspectiveCamera(film, this, pp, p2, v, 50);
+	Point pp = Point(12, 22, 50);
+	Point p2 = Point(0, 0, 0);
+	Vector v = Vector(0, 1, 0);
+	cam = new PerspectiveCamera(film, this, pp, p2, v, 100);
 
+	// create and add sphere
 	Shape * s = new Sphere();
-	Primitive p = Primitive(s);
-	primitives.push_back(p);
+	SolidMaterial* mat = new SolidMaterial(Color(1, 0, 0));
+	Primitive redSphere = Primitive(s, mat);
+	primitives.push_back(redSphere);
 }
 
 void Scene::render() {
@@ -27,13 +29,20 @@ void Scene::render() {
 }
 
 bool Scene::intersect(const Ray& ray, Intersection& isect) {
-	float i = 0;
-	for(auto &primitive : primitives) {
-		if(primitive.intersect(ray,i,isect)) {
-			return true;
+	float tMin = INFINITY;
+	for (auto &primitive : primitives) {
+		float t;
+		if (primitive.intersect(ray, t, isect)) {
+			if (t <= tMin) {
+				tMin = t;
+			}
 		}
 	}
-	return false;
+	if (tMin != INFINITY) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 Scene::~Scene() {

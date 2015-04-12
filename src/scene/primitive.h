@@ -11,6 +11,7 @@
 #include "berta.h"
 #include "shape.h"
 #include "material.h"
+#include "intersection.h"
 
 class Primitive {
 private:
@@ -18,11 +19,9 @@ private:
 	Material* material;
 
 public:
-	Primitive(Shape * const s);
+	Primitive(Shape * const s, Material* const mat);
 
-	bool intersect(const Ray& ray, float& tmin, Intersection& isct) {
-		return shape->intersect(ray, tmin, isct);
-	}
+	bool intersect(const Ray& ray, float& tmin, Intersection& isct);
 
 	~Primitive() {
 		;
