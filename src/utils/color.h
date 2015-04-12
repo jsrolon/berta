@@ -23,6 +23,13 @@ public:
 		return (Color (r / a, g / a, b / a));
 	}
 
+	Color operator+=(const Color c) {
+		r += c.r;
+		g += c.g;
+		b += c.b;
+		return(*this);
+	}
+
 	virtual ~Color();
 };
 

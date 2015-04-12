@@ -15,7 +15,7 @@ Scene::Scene() {
 	Point pp = Point(50, -15, 0);
 	Point p2 = Point(0, 0, 0);
 	Vector v = Vector(0, 1, 0);
-	cam = new PerspectiveCamera(film, this, pp, p2, v, 150);
+	cam = new PerspectiveCamera(film, this, pp, p2, v, 250);
 
 	// create and add sphere
 	Shape * s = new Sphere();

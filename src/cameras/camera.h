@@ -23,6 +23,7 @@ public:
 protected:
 	Tracer* tracer;
 	Film* film;
+	Sampler* sampler;
 
 	Point eye, lookAt;
 	Vector up;

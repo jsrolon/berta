@@ -9,6 +9,7 @@
 #define CAMERAS_PERSPECTIVECAMERA_H_
 
 #include <cameras/camera.h>
+#include "RandomSampler.h"
 
 class PerspectiveCamera: public Camera {
 public:

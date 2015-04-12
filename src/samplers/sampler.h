@@ -8,8 +8,13 @@
 #ifndef UTILS_SAMPLER_H_
 #define UTILS_SAMPLER_H_
 
+#include "berta.h"
+#include "geometry.h"
 
-
-
+class Sampler {
+public:
+	int numSamples;
+	virtual Point sample() const = 0;
+};
 
 #endif /* UTILS_SAMPLER_H_ */

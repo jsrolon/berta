@@ -72,6 +72,9 @@ class Shape;
 // Tracer
 class Tracer;
 
+//Samplers
+class Sampler;
+
 //Scene
 class Scene;
 
