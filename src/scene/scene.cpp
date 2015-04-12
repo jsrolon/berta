@@ -12,7 +12,10 @@
  */
 Scene::Scene() {
 	film = new Film();
-	cam = new PerspectiveCamera(film, this);
+	Point pp = Point(12,22,50);
+	Point p2 = Point(0,0,0);
+	Vector v = Vector(0,1,0);
+	cam = new PerspectiveCamera(film, this, pp, p2, v, 50);
 
 	Shape * s = new Sphere();
 	Primitive p = Primitive(s);
@@ -34,5 +37,6 @@ bool Scene::intersect(const Ray& ray, Intersection& isect) {
 }
 
 Scene::~Scene() {
-
+	delete film;
+	delete cam;
 }

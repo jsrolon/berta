@@ -17,11 +17,14 @@ public:
 	 * @param f
 	 * @param scene
 	 */
-	PerspectiveCamera(Film* const f, Scene* const scene);
+	PerspectiveCamera(Film* const f, Scene* const scene, Point& e, Point& lA,
+			Vector& uup, float dis);
 
 	virtual void render();
 
 	virtual ~PerspectiveCamera();
+protected:
+	float d; // distance to the film
 };
 
 #endif /* CAMERAS_PERSPECTIVECAMERA_H_ */

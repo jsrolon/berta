@@ -23,8 +23,10 @@ public:
 protected:
 	Tracer* tracer;
 	Film* film;
+
 	Point eye, lookAt;
 	Vector up;
+
 	Vector u, v, w; // coordinate system
 };
 

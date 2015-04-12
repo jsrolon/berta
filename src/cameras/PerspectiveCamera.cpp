@@ -7,12 +7,21 @@
 
 #include <cameras/PerspectiveCamera.h>
 
-PerspectiveCamera::PerspectiveCamera(Film* const f, Scene* const scene) {
+PerspectiveCamera::PerspectiveCamera(Film* const f, Scene* const scene,
+		Point& e, Point& lA, Vector& uup, float dis) {
 	film = f;
-//	eye = e;
-//	lookAt = lA;
-//	up = u;
+	eye = e;
+	lookAt = lA;
+	up = uup;
+	d = dis;
 	tracer = new Tracer(scene);
+
+	// Create the coordinate system
+	w = eye - lookAt;
+	w = Normalize(w);
+	u = Cross(up, w);
+	u = Normalize(u);
+	v = Cross(w, u);
 }
 
 void PerspectiveCamera::render() {
@@ -22,13 +31,11 @@ void PerspectiveCamera::render() {
 		for (int y = 0; y < vres; y++) {
 			float xray = (x - (hres / 2) + 0.5);
 			float yray = (y - (vres / 2) + 0.5);
-			float zray = 2;
 
-			Point p = Point(xray, yray, zray);
-			Vector v = Vector(0, 0, -1);
-			Ray ray = Ray();
-			ray.o = p;
-			ray.d = v;
+			Point onFilm = Point(xray, yray, d);
+			Vector direction = (xray * u) + (yray * v) - d * w;
+			direction = Normalize(direction);
+			Ray ray = Ray(eye, direction);
 
 			Color raw_color = tracer->trace(ray);
 			film->setPixelColor(x, y, raw_color);
