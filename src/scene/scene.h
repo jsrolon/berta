@@ -18,13 +18,20 @@
 #include "intersection.h"
 #include "camera.h"
 
+#include "sphere.h"
+#include "PerspectiveCamera.h"
+
 class Scene {
 public:
 	Camera* cam;
+
+	/**
+	 * Film is initialized when wxraytracer.cpp asks for its values
+	 */
 	Film* film;
 
 	vector<Primitive> primitives;
-	vector<Light> lights;
+	vector<Light*> lights;
 
 	/**
 	 * The scene constructor *constructs* the scene
@@ -32,6 +39,7 @@ public:
 	Scene();
 
 	void render();
+	bool intersect(const Ray& ray, Intersection& isect);
 
 	/**
 	 * The scene destructor *destructs* the scene

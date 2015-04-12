@@ -69,6 +69,12 @@ class BBox;
 // Scene
 class Shape;
 
+// Tracer
+class Tracer;
+
+//Scene
+class Scene;
+
 // Utils
 class Intersection;
 class Sampler;

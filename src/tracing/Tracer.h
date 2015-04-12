@@ -11,11 +11,17 @@
 #include "berta.h"
 #include "color.h"
 #include "geometry.h"
+#include "scene.h"
 
 class Tracer {
+protected:
+	Scene* scene;
 public:
-	virtual Color trace(const Ray&);
-	virtual ~Tracer();
+	Tracer(Scene* const sc);
+
+	Color trace(const Ray&);
+
+	~Tracer();
 };
 
 #endif /* TRACING_TRACER_H_ */

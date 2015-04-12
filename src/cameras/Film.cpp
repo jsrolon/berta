@@ -8,7 +8,9 @@
 #include <cameras/Film.h>
 #include "wxraytracer.h"
 
-Film::Film() {
+Film::Film() :
+		hres(400), vres(400), show_out_of_gamut(true), gamma(1.0f), invGamma(
+				1.0f) {
 	// TODO Auto-generated constructor stub
 }
 

@@ -12,7 +12,12 @@
 
 class PerspectiveCamera: public Camera {
 public:
-	PerspectiveCamera();
+	/**
+	 * TODO add again the member variables
+	 * @param f
+	 * @param scene
+	 */
+	PerspectiveCamera(Film* const f, Scene* const scene);
 
 	virtual void render();
 

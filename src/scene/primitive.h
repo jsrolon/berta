@@ -15,10 +15,10 @@
 class Primitive {
 private:
 	Shape* shape;
-	Material material;
+	Material* material;
 
 public:
-	Primitive();
+	Primitive(Shape * const s);
 
 	bool intersect(const Ray& ray, float& tmin, Intersection& isct) {
 		return shape->intersect(ray, tmin, isct);
