@@ -19,6 +19,7 @@ private:
 	float radius;
 public:
 	Sphere();
+	Sphere(float x, float y, float z);
 
 	virtual bool intersect(const Ray& ray, float& tmin,
 				Intersection& isct) const;

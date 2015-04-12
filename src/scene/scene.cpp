@@ -23,9 +23,15 @@ Scene::Scene() {
 	Primitive redSphere = Primitive(s, mat);
 	primitives.push_back(redSphere);
 
+	// create and add sphere
+	Shape * s2 = new Sphere(0,0,35);
+	SolidMaterial* mat3 = new SolidMaterial(Color(0, 1, 0));
+	Primitive grrSphere = Primitive(s2, mat3);
+	primitives.push_back(grrSphere);
+
 	// create and add plane
 	Shape* pl = new Plane();
-	SolidMaterial* mat2 = new SolidMaterial(Color(0,0,1));
+	SolidMaterial* mat2 = new SolidMaterial(Color(0, 0, 1));
 	Primitive bluePlane = Primitive(pl, mat2);
 	primitives.push_back(bluePlane);
 }

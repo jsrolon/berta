@@ -9,7 +9,7 @@
 #include "wxraytracer.h"
 
 Film::Film() :
-		hres(400), vres(400), show_out_of_gamut(true), gamma(1.0f), invGamma(
+		hres(600), vres(600), show_out_of_gamut(true), gamma(1.0f), invGamma(
 				1.0f) {
 	// TODO Auto-generated constructor stub
 }

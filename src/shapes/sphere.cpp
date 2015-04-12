@@ -11,6 +11,10 @@ Sphere::Sphere() :
 		center(*(new Point())), radius(20.0f) {
 }
 
+Sphere::Sphere(float x, float y, float z) :
+		center(*(new Point(x, y, z))), radius(20.0f) {
+}
+
 bool Sphere::intersect(const Ray& ray, float& tmin, Intersection& isct) const {
 	float t;
 	Vector temp = ray.o - center;
@@ -29,7 +33,7 @@ bool Sphere::intersect(const Ray& ray, float& tmin, Intersection& isct) const {
 			tmin = t;
 			isct.normal = *(new Normal((temp + t * ray.d) / radius));
 			isct.point = ray.o + t * ray.d;
-			printf("Sphere\t%f\n",t);
+			printf("Sphere\t%f\n", t);
 			return true;
 		}
 		t = (-b + e) / denom;
