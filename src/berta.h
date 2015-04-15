@@ -75,6 +75,9 @@ class Tracer;
 //Samplers
 class Sampler;
 
+//BRDF
+class BRDF;
+
 //Scene
 class Scene;
 

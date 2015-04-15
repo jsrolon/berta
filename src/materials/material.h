@@ -9,9 +9,11 @@
 #define SCENE_MATERIAL_H_
 
 #include "berta.h"
+#include "color.h"
 
 class Material {
 public:
+	virtual Color shade() = 0;
 	virtual ~Material() {};
 };
 

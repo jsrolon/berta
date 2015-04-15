@@ -53,6 +53,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/lights}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/tracing}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/samplers}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/berta/src/BRDFs}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1205646658" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FILE_OFFSET_BITS=64"/>

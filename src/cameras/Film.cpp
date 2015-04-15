@@ -11,7 +11,6 @@
 Film::Film() :
 		hres(600), vres(600), show_out_of_gamut(true), gamma(1.0f), invGamma(
 				1.0f) {
-	// TODO Auto-generated constructor stub
 }
 
 /**

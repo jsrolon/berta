@@ -32,6 +32,8 @@ public:
 	 */
 	Film* film;
 
+	Light* ambientLight; // according to suffern
+
 	vector<Primitive> primitives;
 	vector<Light*> lights;
 

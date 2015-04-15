@@ -18,6 +18,8 @@ public:
 
 	SolidMaterial(const Color& col);
 
+	virtual Color shade();
+
 	virtual ~SolidMaterial();
 };
 

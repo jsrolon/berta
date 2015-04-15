@@ -28,6 +28,7 @@ PerspectiveCamera::PerspectiveCamera(Film* const f, Scene* const scene,
 void PerspectiveCamera::render() {
 	int hres = film->hres;
 	int vres = film->vres;
+	// for each one of the pixels
 	for (int x = 0; x < hres; x++) {
 		for (int y = 0; y < vres; y++) {
 			Point sample;
@@ -40,18 +41,21 @@ void PerspectiveCamera::render() {
 				float yray = (y - (vres / 2) + sample.y);
 
 				Point onFilm = Point(xray, yray, d);
-				Vector direction = (xray * u) + (yray * v) - d * w;
+				Vector direction = (xray * u) + (yray * v) - d * w; // in world coords
 				direction = Normalize(direction);
 				Ray ray = Ray(eye, direction);
 
+				// adds the color calculated by each sample
 				raw_color += tracer->trace(ray);
 			}
+			// averaging filter per pixel
 			raw_color = raw_color / sampler->numSamples;
-			film->setPixelColor(x, y, raw_color);
+			film->setPixelColor(x, y, raw_color); // set the color of the pixel on the film
 		}
 	}
 }
 
 PerspectiveCamera::~PerspectiveCamera() {
-	// TODO Auto-generated destructor stub
+	delete tracer;
+	delete sampler;
 }

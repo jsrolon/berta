@@ -12,7 +12,7 @@
  */
 Scene::Scene() {
 	film = new Film();
-	Point pp = Point(50, -15, 0);
+	Point pp = Point(50, -15, 50);
 	Point p2 = Point(0, 0, 0);
 	Vector v = Vector(0, 1, 0);
 	cam = new PerspectiveCamera(film, this, pp, p2, v, 250);
@@ -24,14 +24,14 @@ Scene::Scene() {
 	primitives.push_back(redSphere);
 
 	// create and add sphere
-	Shape * s2 = new Sphere(0,0,35);
+	Shape * s2 = new Sphere(0, 0, 35);
 	SolidMaterial* mat3 = new SolidMaterial(Color(0, 1, 0));
 	Primitive grrSphere = Primitive(s2, mat3);
 	primitives.push_back(grrSphere);
 
 	// create and add plane
 	Shape* pl = new Plane();
-	SolidMaterial* mat2 = new SolidMaterial(Color(0, 0, 1));
+	SolidMaterial* mat2 = new SolidMaterial(Color(0.8, 0.4, 0));
 	Primitive bluePlane = Primitive(pl, mat2);
 	primitives.push_back(bluePlane);
 }
@@ -41,17 +41,18 @@ void Scene::render() {
 }
 
 bool Scene::intersect(const Ray& ray, Intersection& isect) {
-	Intersection iTmp;
+	Intersection iTmp; // to return the intersection at the actual minimum t
 	float tMin = INFINITY;
 	for (auto &primitive : primitives) {
 		float t;
-		if (primitive.intersect(ray, t, iTmp)) {
-			if (t < tMin) {
-				tMin = t;
-				isect = iTmp;
-			}
+		if (primitive.intersect(ray, t, iTmp) && t < tMin) {
+			tMin = t;
+			isect = iTmp;
 		}
 	}
+	/**
+	 * A lowest t has been found
+	 */
 	if (tMin != INFINITY) {
 		return true;
 	} else {

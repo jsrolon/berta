@@ -20,7 +20,7 @@ bool wxraytracerapp::OnInit()
 {
    wxInitAllImageHandlers();
    
-   frame = new wxraytracerFrame(wxPoint(200,200), wxSize(800,600) );
+   frame = new wxraytracerFrame(wxPoint(200,200), wxSize(1280,768) );
    frame->Centre();
    frame->Show(TRUE);
    SetTopWindow(frame);
