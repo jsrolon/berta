@@ -8,7 +8,7 @@
 #ifndef MATERIALS_SOLIDMATERIAL_H_
 #define MATERIALS_SOLIDMATERIAL_H_
 
-#include <material.h>
+#include <Material.h>
 #include "berta.h"
 #include "color.h"
 

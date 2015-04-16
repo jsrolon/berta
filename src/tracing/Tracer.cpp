@@ -16,7 +16,7 @@ Color Tracer::trace(const Ray& ray) {
 	Intersection isect;
 	if(scene->intersect(ray, isect)) {
 		return isect.material->shade(isect);
-	} else return Color(0.8,1,1);
+	} else return scene->background_color;
 }
 
 Tracer::~Tracer() {

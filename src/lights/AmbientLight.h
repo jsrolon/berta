@@ -8,7 +8,7 @@
 #ifndef LIGHTS_AMBIENTLIGHT_H_
 #define LIGHTS_AMBIENTLIGHT_H_
 
-#include <light.h>
+#include <Light.h>
 
 class AmbientLight: public Light {
 private:

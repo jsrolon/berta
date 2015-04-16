@@ -5,9 +5,10 @@
  *      Author: jsrolon
  */
 
-#include <BRDFs/Lambertian.h>
+#include <LambertianBRDF.h>
 
-Lambertian::Lambertian(float & thekd, Color& thecd) : kd(thekd), cd(thecd) {
+Lambertian::Lambertian(float & thekd, Color& thecd) :
+		kd(thekd), cd(thecd) {
 
 }
 

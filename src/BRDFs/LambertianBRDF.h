@@ -5,8 +5,8 @@
  *      Author: jsrolon
  */
 
-#ifndef BRDFS_LAMBERTIAN_H_
-#define BRDFS_LAMBERTIAN_H_
+#ifndef BRDFS_LAMBERTIANBRDF_H_
+#define BRDFS_LAMBERTIANBRDF_H_
 
 #include <BRDFs/BRDF.h>
 
@@ -23,4 +23,4 @@ public:
 	virtual ~Lambertian();
 };
 
-#endif /* BRDFS_LAMBERTIAN_H_ */
+#endif /* BRDFS_LAMBERTIANBRDF_H_ */

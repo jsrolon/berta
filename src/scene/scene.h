@@ -8,24 +8,33 @@
 #ifndef SCENE_SCENE_H_
 #define SCENE_SCENE_H_
 
+#include <Camera.h>
+#include <Light.h>
 #include "berta.h"
 #include "film.h"
 #include "color.h"
 #include "geometry.h"
 #include "shape.h"
 #include "primitive.h"
-#include "light.h"
 #include "intersection.h"
-#include "camera.h"
+#include "color.h"
 
+/**
+ * Abstract class implementations
+ */
 #include "sphere.h"
 #include "PerspectiveCamera.h"
 #include "SolidMaterial.h"
 #include "plane.h"
+#include "MatteMaterial.h"
+#include "AmbientLight.h"
+#include "PointLight.h"
 
 class Scene {
 public:
 	Camera* cam;
+
+	Color background_color;
 
 	/**
 	 * Film is initialized when wxraytracer.cpp asks for its values

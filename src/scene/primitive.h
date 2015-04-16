@@ -8,9 +8,9 @@
 #ifndef SCENE_PRIMITIVE_H_
 #define SCENE_PRIMITIVE_H_
 
+#include <Material.h>
 #include "berta.h"
 #include "shape.h"
-#include "material.h"
 #include "intersection.h"
 
 class Primitive {
