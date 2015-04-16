@@ -12,14 +12,14 @@
  */
 Scene::Scene() {
 	film = new Film();
-	Point pp = Point(50, 0, 0);
+	Point pp = Point(50, -20, 0);
 	Point p2 = Point(0, 0, 0);
 	Vector v = Vector(0, 1, 0);
-	cam = new PerspectiveCamera(film, this, pp, p2, v, 200);
+	cam = new PerspectiveCamera(film, this, pp, p2, v, 150);
 
 	// Lights
 	ambientLight = new AmbientLight();
-	PointLight* pLight = new PointLight(Point(30,-20,-20));
+	PointLight* pLight = new PointLight(Point(30,-10,0), this);
 	lights.push_back(pLight);
 
 	background_color = Color(0,0,0);
@@ -31,16 +31,16 @@ Scene::Scene() {
 	primitives.push_back(redSphere);
 
 	// create and add sphere
-//	Shape * s2 = new Sphere(0, 0, 50);
-//	MatteMaterial* mat3 = new MatteMaterial(this, 0.65, 0.15, Color(0, 1, 0));
-//	Primitive grrSphere = Primitive(s2, mat3);
-//	primitives.push_back(grrSphere);
+	Shape * s2 = new Sphere(-25, -25, 0);
+	PhongMaterial* mat3 = new PhongMaterial(this, 0.65, 0.15, 0.4, Color(0, 0, 1), 10);
+	Primitive grrSphere = Primitive(s2, mat3);
+	primitives.push_back(grrSphere);
 
 	// create and add plane
-//	Shape* pl = new Plane();
-//	MatteMaterial* mat2 = new MatteMaterial(this, 0.65, 0.05, Color(0.8, 0.4, 0));
-//	Primitive bluePlane = Primitive(pl, mat2);
-//	primitives.push_back(bluePlane);
+	Shape* pl = new Plane();
+	MatteMaterial* mat2 = new MatteMaterial(this, 0.65, 0.15, Color(0.8, 0.4, 0));
+	Primitive bluePlane = Primitive(pl, mat2);
+	primitives.push_back(bluePlane);
 }
 
 void Scene::render() {

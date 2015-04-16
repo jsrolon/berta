@@ -16,6 +16,8 @@ public:
 	virtual bool intersect(const Ray& ray, float& tmin,
 			Intersection& isct) const = 0;
 
+	virtual bool shadow_hit(const Ray& ray, float& tmin) const = 0;
+
 	virtual ~Shape();
 };
 

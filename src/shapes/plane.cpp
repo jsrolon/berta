@@ -15,6 +15,18 @@ Plane::Plane(const Point& p, const Normal& n) :
 		point(p), normal(n) {
 }
 
+bool Plane::shadow_hit(const Ray& ray, float& tmin) const {
+	float num = Dot((point - ray.o), normal);
+		float denom = Dot(ray.d, normal);
+		float t = num / denom;
+
+		if (t > EPSILON) {
+			tmin=t;
+			return true;
+		} else
+			return false;
+}
+
 bool Plane::intersect(const Ray& ray, float& tmin,
 		Intersection& isct) const {
 	float num = Dot((point - ray.o), normal);

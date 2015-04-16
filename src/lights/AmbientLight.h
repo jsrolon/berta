@@ -25,6 +25,9 @@ public:
 	AmbientLight();
 	AmbientLight(float l, Color c);
 
+	virtual bool in_shadow(Ray& ray, Intersection& intersection) {
+		return false;
+	}
 	virtual Vector direction(Intersection& isect);
 	virtual Color L(Intersection& isect);
 

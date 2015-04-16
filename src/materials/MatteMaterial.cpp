@@ -19,12 +19,20 @@ Color MatteMaterial::shade(Intersection& isect) {
 	Color L = ambient_brdf->rho(isect, wo) * scene->ambientLight->L(isect);
 
 	// add each lights irradiance contribution multiplied by brdf
-	for(auto &light : scene->lights) {
+	for (auto &light : scene->lights) {
 		Vector wi = light->direction(isect); // incident direction
 		float ndotwi = Dot(isect.normal, wi);
 
-		if(ndotwi > 0.0f) {
-			L += diffuse_brdf->f(isect, wi, wo) * light->L(isect) * ndotwi; // these can be directional or point lights
+		if (ndotwi > 0.0f) {
+			bool in_shadow = false;
+			if (light->casts_shadows) {
+				Ray shadowRay(isect.point, wi);
+				in_shadow = light->in_shadow(shadowRay, isect);
+			}
+
+			if (!in_shadow) {
+				L += diffuse_brdf->f(isect, wi, wo) * light->L(isect) * ndotwi; // these can be directional or point lights
+			}
 		}
 	}
 	return L;

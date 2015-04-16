@@ -17,9 +17,10 @@ private:
 	Point p; // location!
 	bool attenuation; // distance attenuation
 public:
-	PointLight(Point pp);
-	PointLight(Point pp, float l);
+	PointLight(Point pp, Scene* sc);
+	PointLight(Point pp, float l, Scene* sc);
 
+	virtual bool in_shadow(Ray& ray, Intersection& intersection);
 	virtual Vector direction(Intersection& isect);
 	virtual Color L(Intersection& isect);
 

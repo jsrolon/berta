@@ -23,6 +23,8 @@ public:
 
 	bool intersect(const Ray& ray, float& tmin, Intersection& isct);
 
+	bool shadow_hit(const Ray& ray, float& tmin);
+
 	~Primitive() {
 		;
 	}

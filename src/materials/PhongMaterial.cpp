@@ -19,10 +19,15 @@ Color PhongMaterial::shade(Intersection& isect) {
 		float ndotwi = Dot(isect.normal, wi);
 
 		if (ndotwi > 0.0f) {
-			Color diff = diffuse->f(isect, wi, wo);
-			Color spec = specular->f(isect, wi, wo);
-			L += (diff + spec)
-					* light->L(isect) * ndotwi; // combination of diffuse lighting and specular
+			bool in_shadow = false;
+			if (light->casts_shadows) {
+				Ray shadowRay(isect.point, wi);
+				in_shadow = light->in_shadow(shadowRay, isect);
+			}
+			if (!in_shadow) {
+				L += (diffuse->f(isect, wi, wo) + specular->f(isect, wi, wo))
+						* light->L(isect) * ndotwi; // combination of diffuse lighting and specular
+			}
 		}
 	}
 	return L;

@@ -89,7 +89,7 @@ class Transform;
 /**
  * Global constants
  */
-const float EPSILON = 0.0001;
+const float EPSILON = 0.1;
 const float PI = 3.1415926535898;
 const float INV_PI = 0.3183098861838;
 

@@ -14,6 +14,8 @@
 
 class Light {
 public:
+	bool casts_shadows;
+	Scene* scene;
 	/**
 	 *
 	 * @param isect
@@ -27,6 +29,7 @@ public:
 	 * @return
 	 */
 	virtual Color L(Intersection& isect) = 0;
+	virtual bool in_shadow(Ray& ray, Intersection& intersection) = 0;
 	virtual ~Light() {};
 };
 
