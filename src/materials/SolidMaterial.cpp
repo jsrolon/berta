@@ -8,7 +8,7 @@
 #include <SolidMaterial.h>
 
 Color SolidMaterial::shade(Intersection& isect) {
-
+	return color;
 }
 
 SolidMaterial::SolidMaterial(const Color& col) : color(col) {

@@ -15,6 +15,10 @@ Sphere::Sphere(float x, float y, float z) :
 		center(*(new Point(x, y, z))), radius(20.0f) {
 }
 
+Sphere::Sphere(Point pos, float rad) :
+		center(pos), radius(rad) {
+}
+
 bool Sphere::intersect(const Ray& ray, float& tmin, Intersection& isct) const {
 	float t;
 	Vector temp = ray.o - center;

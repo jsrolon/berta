@@ -20,6 +20,7 @@ private:
 public:
 	Sphere();
 	Sphere(float x, float y, float z);
+	Sphere(Point pos, float rad);
 
 	virtual bool intersect(const Ray& ray, float& tmin,
 				Intersection& isct) const;

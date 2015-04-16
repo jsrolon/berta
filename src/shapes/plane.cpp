@@ -8,7 +8,7 @@
 #include "plane.h"
 
 Plane::Plane() :
-		point(*(new Point())), normal(*(new Normal(0, 1, 0))) {
+		point(*(new Point())), normal(*(new Normal(0, -1, 0))) {
 }
 
 Plane::Plane(const Point& p, const Normal& n) :
