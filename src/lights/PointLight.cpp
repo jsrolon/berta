@@ -17,7 +17,7 @@ Color PointLight::L(Intersection& isect) {
 }
 
 PointLight::PointLight(Point pp) :
-		p(pp), attenuation(false), ls(1.0f), cl(Color(1, 1, 1)) {
+		p(pp), attenuation(false), ls(2.0f), cl(Color(1, 1, 1)) {
 
 }
 
@@ -28,4 +28,3 @@ PointLight::PointLight(Point pp, float l) :
 PointLight::~PointLight() {
 	// TODO Auto-generated destructor stub
 }
-

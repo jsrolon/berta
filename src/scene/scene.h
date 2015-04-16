@@ -29,6 +29,7 @@
 #include "MatteMaterial.h"
 #include "AmbientLight.h"
 #include "PointLight.h"
+#include "PhongMaterial.h"
 
 class Scene {
 public:

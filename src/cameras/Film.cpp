@@ -9,7 +9,7 @@
 #include "wxraytracer.h"
 
 Film::Film() :
-		hres(600), vres(600), show_out_of_gamut(true), gamma(1.0f), invGamma(
+		hres(600), vres(600), show_out_of_gamut(false), gamma(1.0f), invGamma(
 				1.0f) {
 }
 
@@ -58,8 +58,8 @@ Color Film::clamp_to_color(const Color& raw_color) const {
 	Color c(raw_color);
 
 	if (raw_color.r > 1.0 || raw_color.g > 1.0 || raw_color.b > 1.0) {
-		c.r = 1.0;
-		c.g = 0.0;
+		c.r = 0.0;
+		c.g = 1.0;
 		c.b = 0.0;
 	}
 

@@ -30,6 +30,17 @@ public:
 		return Color(r*c.r,g*c.g,b*c.b);
 	}
 
+	Color operator=(const float f) {
+		r = f;
+		g = f;
+		b = f;
+		return *this;
+	}
+
+	Color operator+(const Color c) const {
+		return Color(r + c.r, g + c.g, b + c.b);
+	}
+
 	Color operator*(const float a) const {
 		return Color(r * a, g*a, b*a);
 	}

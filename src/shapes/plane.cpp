@@ -17,7 +17,9 @@ Plane::Plane(const Point& p, const Normal& n) :
 
 bool Plane::intersect(const Ray& ray, float& tmin,
 		Intersection& isct) const {
-	float t = Dot((point - ray.o), normal) / Dot(ray.d, normal);
+	float num = Dot((point - ray.o), normal);
+	float denom = Dot(ray.d, normal);
+	float t = num / denom;
 
 	if (t > EPSILON) {
 		tmin = t;

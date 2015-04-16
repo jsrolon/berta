@@ -10,17 +10,17 @@
 
 #include <BRDFs/BRDF.h>
 
-class Lambertian: public BRDF {
+class LambertianBRDF: public BRDF {
 protected:
 	float kd; // diffuse reflection coefficient
 	Color cd; // diffuse color
 public:
-	Lambertian(float& thekd, Color& thecd);
+	LambertianBRDF(float& thekd, Color& thecd);
 
 	virtual Color f(Intersection& isect, const Vector& wi, const Vector& wo);
 	virtual Color rho(Intersection& isect, const Vector& wo);
 
-	virtual ~Lambertian();
+	virtual ~LambertianBRDF();
 };
 
 #endif /* BRDFS_LAMBERTIANBRDF_H_ */

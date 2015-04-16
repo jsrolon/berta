@@ -31,11 +31,12 @@ Color MatteMaterial::shade(Intersection& isect) {
 }
 
 MatteMaterial::~MatteMaterial() {
-	// TODO Auto-generated destructor stub
+	delete diffuse_brdf;
+	delete ambient_brdf;
 }
 
 MatteMaterial::MatteMaterial(Scene* sc, float thekd, float theka, Color thecd) {
-	diffuse_brdf = new Lambertian(thekd, thecd);
-	ambient_brdf = new Lambertian(theka, thecd);
+	diffuse_brdf = new LambertianBRDF(thekd, thecd);
+	ambient_brdf = new LambertianBRDF(theka, thecd);
 	scene = sc;
 }

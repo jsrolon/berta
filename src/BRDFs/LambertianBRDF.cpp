@@ -7,19 +7,19 @@
 
 #include <LambertianBRDF.h>
 
-Lambertian::Lambertian(float & thekd, Color& thecd) :
+LambertianBRDF::LambertianBRDF(float & thekd, Color& thecd) :
 		kd(thekd), cd(thecd) {
 
 }
 
-Color Lambertian::f(Intersection& isect, const Vector& wi, const Vector& wo) {
+Color LambertianBRDF::f(Intersection& isect, const Vector& wi, const Vector& wo) {
 	return kd * cd * INV_PI;
 }
 
-Color Lambertian::rho(Intersection& isect, const Vector& wo) {
+Color LambertianBRDF::rho(Intersection& isect, const Vector& wo) {
 	return kd * cd;
 }
 
-Lambertian::~Lambertian() {
+LambertianBRDF::~LambertianBRDF() {
 	// TODO Auto-generated destructor stub
 }
