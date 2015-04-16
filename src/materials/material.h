@@ -13,7 +13,7 @@
 
 class Material {
 public:
-	virtual Color shade() = 0;
+	virtual Color shade(Intersection& isect) = 0;
 	virtual ~Material() {};
 };
 

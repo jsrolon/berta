@@ -10,6 +10,9 @@
 
 #include "berta.h"
 
+/**
+ * TODO implement multiplication
+ */
 class Color {
 public:
 	float r, g, b;
@@ -23,6 +26,10 @@ public:
 		return (Color (r / a, g / a, b / a));
 	}
 
+	Color operator*(const float a) const {
+		return Color(r * a, g*a, b*a);
+	}
+
 	Color operator+=(const Color c) {
 		r += c.r;
 		g += c.g;
@@ -32,5 +39,9 @@ public:
 
 	virtual ~Color();
 };
+
+inline Color operator*(const float a, const Color c) {
+	return Color(c.r*a,c.g*a,c.b*a);
+}
 
 #endif /* UTILS_COLOR_H_ */

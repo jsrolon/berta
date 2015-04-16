@@ -7,7 +7,7 @@
 
 #include <SolidMaterial.h>
 
-Color SolidMaterial::shade() {
+Color SolidMaterial::shade(Intersection& isect) {
 
 }
 

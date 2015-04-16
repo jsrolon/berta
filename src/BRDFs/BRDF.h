@@ -19,7 +19,7 @@ public:
 	 * @param isect Contains the point at which the BRDF will be calculated
 	 * @param wi Incident direction (from where the light comes)
 	 * @param wo Reflecting direction (towards the camera)
-	 * @return
+	 * @return The reflected radiance in direction wo at point isect.p
 	 */
 	virtual Color f(Intersection& isect, const Vector& wi, const Vector& wo) = 0;
 	virtual Color rho(Intersection& isect, const Vector& wo) = 0;

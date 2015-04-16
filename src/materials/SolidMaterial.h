@@ -12,13 +12,16 @@
 #include "berta.h"
 #include "color.h"
 
+/**
+ * The solid material does not support shading
+ */
 class SolidMaterial: public Material {
 public:
 	Color color;
 
 	SolidMaterial(const Color& col);
 
-	virtual Color shade();
+	virtual Color shade(Intersection& isect);
 
 	virtual ~SolidMaterial();
 };

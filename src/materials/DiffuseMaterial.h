@@ -10,13 +10,17 @@
 
 #include <material.h>
 #include "BRDF.h"
+#include "Lambertian.h"
+#include "scene.h"
 
 class DiffuseMaterial: public Material {
 protected:
 	BRDF* brdf;
+	Scene* scene;
 public:
+	virtual Color shade(Intersection& isect);
 	virtual ~DiffuseMaterial();
-	DiffuseMaterial();
+	DiffuseMaterial(Scene* sc, float thekd, Color thecd);
 };
 
 #endif /* MATERIALS_DIFFUSEMATERIAL_H_ */
