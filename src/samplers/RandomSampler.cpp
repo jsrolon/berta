@@ -8,7 +8,7 @@
 #include <RandomSampler.h>
 
 RandomSampler::RandomSampler() {
-	numSamples = 128;
+	numSamples = 16;
 }
 
 RandomSampler::~RandomSampler() {

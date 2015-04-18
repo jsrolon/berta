@@ -19,22 +19,22 @@ Scene::Scene() {
 
 	// Lights
 	ambientLight = new AmbientLight();
-	PointLight* pLight = new PointLight(Point(30,-10,0), this);
-	lights.push_back(pLight);
+	DirectionalLight* dLight = new DirectionalLight(Vector(0.25,-1,-1), this);
+	lights.push_back(dLight);
 
 	background_color = Color(0,0,0);
 
 	// create and add sphere
-	Shape * s = new Sphere();
-	PhongMaterial* mat = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0), 10);
+	Shape * s = new Sphere(Point(0,-15,0), 10);
+	PhongMaterial* mat = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0), 3.5);
 	Primitive redSphere = Primitive(s, mat);
 	primitives.push_back(redSphere);
 
 	// create and add sphere
-	Shape * s2 = new Sphere(-25, -25, 0);
-	PhongMaterial* mat3 = new PhongMaterial(this, 0.65, 0.15, 0.4, Color(0, 0, 1), 10);
-	Primitive grrSphere = Primitive(s2, mat3);
-	primitives.push_back(grrSphere);
+//	Shape * s2 = new Sphere(Point(-5, -20, 18), 15);
+//	PhongMaterial* mat3 = new PhongMaterial(this, 0.65, 0.15, 0.05, Color(0, 0, 1), 5);
+//	Primitive grrSphere = Primitive(s2, mat3);
+//	primitives.push_back(grrSphere);
 
 	// create and add plane
 	Shape* pl = new Plane();

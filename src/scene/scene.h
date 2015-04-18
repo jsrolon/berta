@@ -30,6 +30,7 @@
 #include "AmbientLight.h"
 #include "PointLight.h"
 #include "PhongMaterial.h"
+#include "DirectionalLight.h"
 
 class Scene {
 public:
