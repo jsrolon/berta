@@ -19,13 +19,13 @@ Scene::Scene() {
 
 	// Lights
 	ambientLight = new AmbientLight();
-	DirectionalLight* dLight = new DirectionalLight(Vector(0.25,-1,-1), this);
+	SpotLight* dLight = new SpotLight(Point(0,-40, -20), this, Point(0,0,0), 0.8, 0.5); // uses radians
 	lights.push_back(dLight);
 
 	background_color = Color(0,0,0);
 
 	// create and add sphere
-	Shape * s = new Sphere(Point(0,-15,0), 10);
+	Shape * s = new Sphere();
 	PhongMaterial* mat = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0), 3.5);
 	Primitive redSphere = Primitive(s, mat);
 	primitives.push_back(redSphere);
