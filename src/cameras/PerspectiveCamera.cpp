@@ -14,7 +14,7 @@ PerspectiveCamera::PerspectiveCamera(Film* const f, Scene* const scene,
 	lookAt = lA;
 	up = uup;
 	d = dis;
-	tracer = new Tracer(scene);
+	tracer = new Tracer(scene, 3);
 	sampler = new RandomSampler();
 
 	// Create the coordinate system

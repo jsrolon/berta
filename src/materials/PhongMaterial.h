@@ -15,7 +15,7 @@
 #include "scene.h"
 
 class PhongMaterial: public Material {
-private:
+protected:
 	BRDF* ambient;
 	BRDF* diffuse;
 	BRDF* specular;

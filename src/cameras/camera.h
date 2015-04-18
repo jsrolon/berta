@@ -20,8 +20,8 @@ class Camera {
 public:
 	virtual void render() = 0;
 	virtual ~Camera() {};
-protected:
 	Tracer* tracer;
+protected:
 	Film* film;
 	Sampler* sampler;
 

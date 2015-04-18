@@ -22,6 +22,15 @@ public:
 	 * @return The reflected radiance in direction wo at point isect.p
 	 */
 	virtual Color f(Intersection& isect, const Vector& wi, const Vector& wo) = 0;
+
+	/**
+	 * Same as f, but is used to retrieve the value of wi (unknown)
+	 * @param isect
+	 * @param wi
+	 * @param wo
+	 * @return
+	 */
+	virtual Color sample_f(Intersection& isect, Vector& wi, const Vector& wo) {};
 	virtual Color rho(Intersection& isect, const Vector& wo) = 0;
 
 	virtual ~BRDF();

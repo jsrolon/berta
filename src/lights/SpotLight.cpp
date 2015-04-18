@@ -10,7 +10,7 @@
 
 SpotLight::SpotLight(Point pos, Scene* sc, Point lA, float wAngle,
 		float fallAngle) :
-		ls(2.0), cl(Color(1, 1, 1)) {
+		ls(5.0), cl(Color(1, 1, 1)) {
 	p = pos;
 	scene = sc;
 	cosWidth = cos(wAngle);

@@ -16,8 +16,9 @@
 class Tracer {
 protected:
 	Scene* scene;
+	int max_depth;
 public:
-	Tracer(Scene* const sc);
+	Tracer(Scene* const sc, int dep);
 
 	Color trace(const Ray&);
 
