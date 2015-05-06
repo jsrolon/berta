@@ -50,7 +50,7 @@ public:
 	vector<Light*> lights;
 
 	/**
-	 * The scene constructor *constructs* the scene
+	 * The scene constructor literally builds the scene
 	 */
 	Scene();
 

@@ -38,7 +38,7 @@ PhongMaterial::PhongMaterial(Scene* sc, float kdiffuse, float kambient,
 	scene = sc;
 	diffuse = new LambertianBRDF(kdiffuse, thecd);
 	ambient = new LambertianBRDF(kambient, thecd);
-	specular = new GlossySpecularBRDF(kspecular, exponent, thecd);
+	specular = new GlossySpecularBRDF(kspecular, exponent, Color(1,1,1));
 }
 
 PhongMaterial::~PhongMaterial() {
