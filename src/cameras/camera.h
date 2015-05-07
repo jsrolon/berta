@@ -9,8 +9,8 @@
 #define CAMERAS_CAMERA_H_
 
 #include "berta.h"
-#include "geometry.h"
 #include "Film.h"
+#include "geometry.h"
 #include "Tracer.h"
 
 /**

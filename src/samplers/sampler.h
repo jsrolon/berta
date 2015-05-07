@@ -14,6 +14,7 @@
 class Sampler {
 public:
 	int numSamples;
+	virtual Point sampleDisk() = 0;
 	virtual Point sample() const = 0;
 };
 

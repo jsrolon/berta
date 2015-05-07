@@ -17,7 +17,7 @@ Scene::Scene() {
 	Point pp = Point(200, -55, 0); // camera position
 	Point p2 = Point(0, 0, 0);
 	Vector v = Vector(0, 1, 0);
-	cam = new PerspectiveCamera(film, this, pp, p2, v, 800);
+	cam = new ThinLensCamera(film, this, pp, p2, v, 800, 1, 10000, 1);
 
 	// Lights
 	ambientLight = new AmbientLight();
