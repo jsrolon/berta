@@ -8,6 +8,7 @@
 #include "scene.h"
 #include "ReflectiveMaterial.h"
 #include "TransparentMaterial.h"
+#include "DielectricMaterial.h"
 
 /**
  * Builds the scene environment
@@ -57,8 +58,8 @@ Scene::Scene() {
 
 	//transparent sphere
 	Shape * s5 = new Sphere(Point(35, -20, -15), 15);
-	TransparentMaterial* mat6 = new TransparentMaterial(this, 0.65, 0.15, 0.2,
-			0.95, 0.75, Color(0, 0, 0), Color(1, 1, 1), 2000, 0.9);
+	DielectricMaterial* mat6 = new DielectricMaterial(this, 0.65, 0.15, 0.2,
+			1, Color(1, 1, 1), Color(1, 1, 1), 2000, 1.5, 1.0, Color(1,1,1), Color(1,1,1));
 	Primitive purpleSphere = Primitive(s5, mat6);
 	primitives.push_back(purpleSphere);
 

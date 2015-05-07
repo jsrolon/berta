@@ -20,7 +20,7 @@ protected:
 public:
 	Tracer(Scene* const sc, int dep);
 
-	Color trace(const Ray&);
+	Color trace(Ray&);
 
 	~Tracer();
 };
