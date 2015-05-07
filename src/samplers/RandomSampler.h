@@ -14,7 +14,6 @@ class RandomSampler: public Sampler {
 public:
 	RandomSampler();
 	virtual Point sample() const;
-	virtual Point sampleDisk();
 	virtual ~RandomSampler();
 };
 

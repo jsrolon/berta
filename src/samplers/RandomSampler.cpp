@@ -25,7 +25,3 @@ Point RandomSampler::sample() const {
 	p.y = ((float) rand() / (RAND_MAX));
 	return p;
 }
-
-Point RandomSampler::sampleDisk() {
-	return sample();
-}

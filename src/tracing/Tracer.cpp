@@ -12,17 +12,15 @@ Tracer::Tracer(Scene* const sc, int dep) :
 
 }
 
-Color Tracer::trace(Ray& ray) {
+Color Tracer::trace(const Ray& ray) {
 	if (ray.depth > max_depth) {
 		return Color(0,0,0);
 	} else {
 		Intersection isect;
 		if (scene->intersect(ray, isect)) {
 			return isect.material->shade(isect);
-		} else {
-			ray.time = INFINITY; // khugevalue correction in suffern's book
+		} else
 			return scene->background_color;
-		}
 	}
 }
 

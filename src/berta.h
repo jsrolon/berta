@@ -65,7 +65,6 @@ class Vector;
 class Ray;
 class Normal;
 class BBox;
-class Transform;
 
 // Scene
 class Shape;
