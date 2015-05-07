@@ -585,7 +585,7 @@ inline float SphericalPhi(const Vector &v) {
 	return (p < 0.f) ? p + 2.f * M_PI : p;
 }
 
-Point operator*(const Transform& mat, const Point& p) {
+inline Point operator*(const Transform& mat, const Point& p) {
 	return (Point(
 			mat.m[0][0] * p.x + mat.m[0][1] * p.y + mat.m[0][2] * p.z
 					+ mat.m[0][3],
@@ -595,13 +595,13 @@ Point operator*(const Transform& mat, const Point& p) {
 					+ mat.m[2][3]));
 }
 
-Vector operator*(const Transform& mat, const Vector& v) {
+inline Vector operator*(const Transform& mat, const Vector& v) {
 	return (Vector(mat.m[0][0] * v.x + mat.m[0][1] * v.y + mat.m[0][2] * v.z,
 			mat.m[1][0] * v.x + mat.m[1][1] * v.y + mat.m[1][2] * v.z,
 			mat.m[2][0] * v.x + mat.m[2][1] * v.y + mat.m[2][2] * v.z));
 }
 
-Normal operator*(const Transform& mat, const Normal& n) {
+inline Normal operator*(const Transform& mat, const Normal& n) {
 	return (Normal(mat.m[0][0] * n.x + mat.m[1][0] * n.y + mat.m[2][0] * n.z,
 			mat.m[0][1] * n.x + mat.m[1][1] * n.y + mat.m[2][1] * n.z,
 			mat.m[0][2] * n.x + mat.m[1][2] * n.y + mat.m[2][2] * n.z));
