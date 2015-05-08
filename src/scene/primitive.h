@@ -21,11 +21,11 @@ private:
 public:
 	Primitive(Shape * const s, Material* const mat);
 
-	bool intersect(const Ray& ray, float& tmin, Intersection& isct);
+	virtual bool intersect(const Ray& ray, float& tmin, Intersection& isct);
 
-	bool shadow_hit(const Ray& ray, float& tmin);
+	virtual bool shadow_hit(const Ray& ray, float& tmin);
 
-	~Primitive() {
+	virtual ~Primitive() {
 		;
 	}
 };

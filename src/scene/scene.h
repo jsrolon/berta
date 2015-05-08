@@ -18,6 +18,7 @@
 #include "primitive.h"
 #include "intersection.h"
 #include "color.h"
+#include "instance.h"
 
 /**
  * Abstract class implementations
@@ -46,7 +47,7 @@ public:
 
 	Light* ambientLight; // according to suffern
 
-	vector<Primitive> primitives;
+	vector<Primitive*> primitives;
 	vector<Light*> lights;
 
 	/**

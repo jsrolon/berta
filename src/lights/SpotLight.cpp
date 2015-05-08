@@ -23,7 +23,7 @@ bool SpotLight::in_shadow(Ray& ray, Intersection& intersection) {
 	float distance = Distance(p, ray.o);
 	float t;
 	for (auto &primitive : scene->primitives) {
-		if (primitive.shadow_hit(ray, t) && t < distance) {
+		if (primitive->shadow_hit(ray, t) && t < distance) {
 			return true;
 		}
 	}

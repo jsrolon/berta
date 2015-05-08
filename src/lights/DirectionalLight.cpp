@@ -19,7 +19,7 @@ Color DirectionalLight::L(Intersection& isect) {
 bool DirectionalLight::in_shadow(Ray& ray, Intersection& intersection) {
 	float t;
 	for (auto &primitive : scene->primitives) {
-		if (primitive.shadow_hit(ray, t)) {
+		if (primitive->shadow_hit(ray, t)) {
 			return true;
 		}
 	}

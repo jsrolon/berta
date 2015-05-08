@@ -12,14 +12,20 @@
 
 class Instance: public Primitive {
 private:
-	Primitive* primitive;
 	Transform* invTransform;
+	bool transformed;
 public:
-	Instance(Shape * const s, Material* const mat, Transform* t);
+	Instance(Shape * const s, Material* const mat);
 
 	bool intersect(const Ray& ray, float& tmin, Intersection& isct);
 
 	bool shadow_hit(const Ray& ray, float& tmin);
+
+	void scale(float a, float b, float c);
+
+	void rotatex(float theta);
+	void rotatey(float theta);
+	void rotatez(float theta);
 
 	~Instance() {
 		;

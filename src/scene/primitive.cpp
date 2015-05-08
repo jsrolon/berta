@@ -16,10 +16,7 @@ bool Primitive::intersect(const Ray& ray, float& tmin, Intersection& isct) {
 }
 
 bool Primitive::shadow_hit(const Ray& ray, float& tmin) {
-	if (shape->shadow_hit(ray, tmin)) {
-		return true;
-	}
-	return false;
+	return shape->shadow_hit(ray, tmin);
 }
 
 Primitive::Primitive(Shape* const s, Material* const mat) {
