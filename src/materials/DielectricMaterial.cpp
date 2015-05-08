@@ -12,18 +12,18 @@ DielectricMaterial::DielectricMaterial(Scene* sc, float kdiffuse,
 		float theetain, float theetaout, Color thecfin, Color thecfout) :
 		PhongMaterial(sc, kdiffuse, kambient, kspecular, thecdiffuse, exponent), cfin(
 				thecfin), cfout(thecfout) {
+	scene = sc;
 	fresnel_brdf = new FresnelReflectorBRDF(theetain, theetaout, thecreflective);
-	fresnel_btdf = new FresnelTransmitterBTDF(theetain, theetaout, ktransmittive);
+	fresnel_btdf = new FresnelTransmitterBTDF(theetain, theetaout);
 }
 
 Color DielectricMaterial::shade(Intersection& isect) {
 	Color L(PhongMaterial::shade(isect));
 
-	Vector wi;
 	Vector wo(-isect.ray.d);
-	Color fr = fresnel_brdf->sample_f(isect, wo, wi); //computing wi
+	Vector wi;
+	Color fr = fresnel_brdf->sample_f(isect, wi, wo); //computing wi
 	Ray reflected(isect.point, wi, isect.ray, 0); // child ray
-	float t;
 	Color Lr, Lt;
 	float ndotwi = Dot(isect.normal, wi);
 	if (fresnel_btdf->tir(isect)) {
@@ -34,10 +34,10 @@ Color DielectricMaterial::shade(Intersection& isect) {
 			Lr = scene->cam->tracer->trace(reflected);
 			L += cfout.powc(reflected.time) * Lr;
 		}
-	} else {
+	} else { // there's no tir
 		Vector wt;
-		Color ft = fresnel_btdf->sample_f(isect, wo, wt);
-		Ray transmitted(isect.point, wt);
+		Color ft = fresnel_btdf->sample_f(isect, wo, wt); // compute wt
+		Ray transmitted(isect.point, wt, isect.ray, 0); // also child ray
 		float ndotwt = Dot(isect.normal, wt);
 
 		if (ndotwi < 0.0) {
@@ -53,7 +53,8 @@ Color DielectricMaterial::shade(Intersection& isect) {
 			Lr = fr * scene->cam->tracer->trace(reflected) * fabs(ndotwi);
 			L += cfout.powc(reflected.time) * Lr;
 
-			Lt = ft * scene->cam->tracer->trace(transmitted) * fabs(ndotwt);
+			Color omg = scene->cam->tracer->trace(transmitted);
+			Lt = ft * omg * fabs(ndotwt);
 			L += cfin.powc(transmitted.time) * Lt;
 		}
 	}

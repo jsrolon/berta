@@ -12,9 +12,9 @@
 
 class FresnelTransmitterBTDF: public BTDF {
 protected:
-	float etain, etaout, kt;
+	float etain, etaout;
 public:
-	FresnelTransmitterBTDF(float theetain, float theetaout, float thekt);
+	FresnelTransmitterBTDF(float theetain, float theetaout);
 
 	virtual bool tir(Intersection& isect);
 	virtual Color sample_f(const Intersection& isect, const Vector& wo,

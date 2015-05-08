@@ -17,7 +17,7 @@ ThinLensCamera::ThinLensCamera(Film* const f, Scene* const scene, Point& e,
 	radius = rad;
 	focus = foc;
 	zoom = zo;
-	tracer = new Tracer(scene, 10);
+	tracer = new Tracer(scene, 6);
 	sampler = new RandomSampler();
 
 	// Create the coordinate system

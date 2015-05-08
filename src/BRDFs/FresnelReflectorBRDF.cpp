@@ -7,17 +7,16 @@
 
 #include <FresnelReflectorBRDF.h>
 
-FresnelReflectorBRDF::FresnelReflectorBRDF(float theetain, float theetaout, Color thecreflective) :
+FresnelReflectorBRDF::FresnelReflectorBRDF(float theetain, float theetaout,
+		Color thecreflective) :
 		etain(theetain), etaout(theetaout), cr(thecreflective) {
 }
 
-// TODO
-Color FresnelReflectorBRDF::sample_f(Intersection& isect, Vector& wi,
+Color FresnelReflectorBRDF::sample_f(Intersection& isect, Vector& wr,
 		const Vector& wo) {
 	float ndotwo = Dot(isect.normal, wo);
-	wi = -wo + (2.0 * Vector(isect.normal) * ndotwo);
-	float kr = fresnel(isect);
-	return (kr * cr / Dot(isect.normal, wi));
+	wr = -wo + Vector(2.0 * isect.normal * ndotwo);
+	return (fresnel(isect) * Color(1,1,1) / fabs(Dot(isect.normal, wr)));
 }
 
 float FresnelReflectorBRDF::fresnel(Intersection& isect) {
@@ -34,13 +33,12 @@ float FresnelReflectorBRDF::fresnel(Intersection& isect) {
 
 	float costhetai = Dot(-normal, isect.ray.d);
 	float temp = 1.0 - (1.0 - costhetai * costhetai) / (eta * eta);
-	float costhetat = sqrt(temp); // TODO possible point of failure
+	float costhetat = sqrt(temp);
 	float rparallel = (eta * costhetai - costhetat)
 			/ (eta * costhetai + costhetat);
 	float rperpendicular = (costhetai - eta * costhetat)
 			/ (costhetai + eta * costhetat);
 	float kr = 0.5 * (rparallel * rparallel + rperpendicular * rperpendicular);
-
 	return kr;
 }
 

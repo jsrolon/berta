@@ -6,6 +6,8 @@
  */
 
 #include <Tracer.h>
+#include "typeinfo"
+#include "iostream"
 
 Tracer::Tracer(Scene* const sc, int dep) :
 		scene(sc), max_depth(dep) {
@@ -14,7 +16,7 @@ Tracer::Tracer(Scene* const sc, int dep) :
 
 Color Tracer::trace(const Ray& ray) {
 	if (ray.depth > max_depth) {
-		return Color(0,0,0);
+		return Color(0, 0, 0);
 	} else {
 		Intersection isect;
 		if (scene->intersect(ray, isect)) {

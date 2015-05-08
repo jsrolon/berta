@@ -28,8 +28,8 @@ bool Instance::shadow_hit(const Ray& ray, float& tmin) {
 	Ray invRay(ray);
 	invRay.o = *invTransform * invRay.o;
 	invRay.d = *invTransform * invRay.d;
-	bool ans = Primitive::shadow_hit(invRay, tmin);
-	return transformed ? !ans : ans;
+	Intersection isect;
+	return Primitive::intersect(ray, tmin, isect);
 }
 
 void Instance::scale(float a, float b, float c) {

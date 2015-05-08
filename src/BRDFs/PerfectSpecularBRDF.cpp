@@ -16,7 +16,9 @@ Color PerfectSpecularBRDF::sample_f(Intersection& isect, Vector& wi,
 			const Vector& wo) {
 	float ndotwo = Dot(isect.normal, wo);
 	wi = -wo + (2.0 * Vector(isect.normal) * ndotwo);
-	return (ks * cs / Dot(isect.normal,wi));
+	float denom = Dot(isect.normal,wi);
+	Color omg = ks * cs;
+	return (omg / denom);
 }
 
 PerfectSpecularBRDF::~PerfectSpecularBRDF() {

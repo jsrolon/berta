@@ -11,7 +11,7 @@ TransparentMaterial::TransparentMaterial(Scene* sc, float kdiffuse,
 		float kambient, float kspecular, float kreflective, float thekt,
 		Color thecd, Color therc, float exponent, float theior) :
 		PhongMaterial(sc, kdiffuse, kambient, kspecular, thecd, exponent) {
-	reflective = new PerfectSpecularBRDF(kreflective, therc);
+	reflective = new PerfectSpecularBRDF(1 - thekt, therc);
 	specular_btdf = new PerfectTransmitterBTDF(theior, thekt);
 }
 
@@ -20,7 +20,7 @@ Color TransparentMaterial::shade(Intersection& isect) {
 
 	Vector wo = -isect.ray.d;
 	Vector wi;
-	Color fr = specular_btdf->sample_f(isect, wo, wi); // finds the value of wi
+	Color fr = reflective->sample_f(isect, wi, wo); // finds the value of wi
 	Ray reflected(isect.point, wi, isect.ray, 0);
 
 	if (specular_btdf->tir(isect)) {
@@ -31,7 +31,7 @@ Color TransparentMaterial::shade(Intersection& isect) {
 		Ray transmitted(isect.point, wt, isect.ray, 0);
 		L += fr * scene->cam->tracer->trace(reflected)
 				* fabs(Dot(isect.normal, wi));
-		L += ft * scene->cam->tracer->trace(reflected)
+		L += ft * scene->cam->tracer->trace(transmitted)
 				* fabs(Dot(isect.normal, wt));
 	}
 	return L;
