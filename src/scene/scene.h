@@ -24,7 +24,6 @@
  * Abstract class implementations
  */
 #include "sphere.h"
-#include "ThinLensCamera.h"
 #include "SolidMaterial.h"
 #include "plane.h"
 #include "MatteMaterial.h"

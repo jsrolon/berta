@@ -10,6 +10,7 @@
 #include "TransparentMaterial.h"
 #include <typeinfo>
 #include "iostream"
+#include "ThinLensCamera.h"
 
 /**
  * Builds the scene environment
