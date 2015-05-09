@@ -26,6 +26,7 @@
 #include "sphere.h"
 #include "SolidMaterial.h"
 #include "plane.h"
+#include "Triangle.h"
 #include "Cylinder.h"
 #include "MatteMaterial.h"
 #include "AmbientLight.h"

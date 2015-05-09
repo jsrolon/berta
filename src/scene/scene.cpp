@@ -31,12 +31,19 @@ Scene::Scene() {
 
 	background_color = Color(0, 0, 0);
 
+	// red triangle
+	Shape * s14 = new Triangle(Point(0,-30,0), Point(0,0,15), Point(0, 0, -15));
+	PhongMaterial* mat14 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
+				50);
+	Primitive* redtriangle = new Primitive(s14, mat14);
+		primitives.push_back(redtriangle);
+
 	//red cylindah
-	Shape * s13 = new Cylinder(20, 0, -40);
-	PhongMaterial* mat13 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
-			50);
-	Primitive* redCylindah = new Primitive(s13, mat13);
-	primitives.push_back(redCylindah);
+//	Shape * s13 = new Cylinder(20, 0, -40);
+//	PhongMaterial* mat13 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
+//			50);
+//	Primitive* redCylindah = new Primitive(s13, mat13);
+//	primitives.push_back(redCylindah);
 
 	// red sphere
 //	Shape * s = new Sphere();
@@ -55,7 +62,7 @@ Scene::Scene() {
 	primitives.push_back(grrSphere);
 
 	// green sphere
-	Shape * s3 = new Sphere(Point(0, -24, 0), 4);
+	Shape * s3 = new Sphere(Point(0, -38, 0), 4);
 	ReflectiveMaterial* mat4 = new ReflectiveMaterial(this, 0.65, 0.15, 0.2,
 			0.75, Color(0, 1, 0), Color(1, 1, 1), 2);
 	Primitive* omgSphere = new Primitive(s3, mat4);
