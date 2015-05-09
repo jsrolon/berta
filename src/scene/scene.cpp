@@ -24,20 +24,28 @@ Scene::Scene() {
 	// Lights
 	ambientLight = new AmbientLight();
 	PointLight* dLight = new PointLight(Point(0, -40, 60), this); // uses radians
-	SpotLight* dLight2 = new SpotLight(Point(80,-70,0), this, Point(), 0.8, 0.6); // uses radians
+	SpotLight* dLight2 = new SpotLight(Point(80, -40, 0), this, Point(), 0.8,
+			0.6); // uses radians
 	lights.push_back(dLight);
 	lights.push_back(dLight2);
 
 	background_color = Color(0, 0, 0);
 
-	// red sphere
-	Shape * s = new Sphere();
-	PhongMaterial* mat = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
+	//red cylindah
+	Shape * s13 = new Cylinder(20, 0, -40);
+	PhongMaterial* mat13 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
 			50);
-	Instance* redSphere = new Instance(s, mat);
-//	redSphere->scale(1, 1.5, 1);
-//	redSphere->rotatex(1); // rad
-	primitives.push_back(redSphere);
+	Primitive* redCylindah = new Primitive(s13, mat13);
+	primitives.push_back(redCylindah);
+
+	// red sphere
+//	Shape * s = new Sphere();
+//	PhongMaterial* mat = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
+//			50);
+//	Instance* redSphere = new Instance(s, mat);
+////	redSphere->scale(1, 1.5, 1);
+////	redSphere->rotatex(1); // rad
+//	primitives.push_back(redSphere);
 
 	// blue sphere
 	Shape * s2 = new Sphere(Point(-10, -10, 26), 8);
@@ -63,13 +71,13 @@ Scene::Scene() {
 //	primitives.push_back(yellowSphere);
 
 	//transparent sphere
-	Shape * s5 = new Sphere(Point(35, -15, 0), 15);
-	DielectricMaterial* mat6 = new DielectricMaterial(this, 0.65, 0.15, 0.2,
-			0.95, Color(0, 0, 0), Color(1, 1, 1), 2000, 1, 1.1, Color(1, 1, 1),
-			Color(1, 1, 1));
-	Primitive* purpleSphere = new Primitive(s5, mat6);
-//	purpleSphere->scale(1,1,2);
-	primitives.push_back(purpleSphere);
+//	Shape * s5 = new Sphere(Point(35, -15, 0), 15);
+//	DielectricMaterial* mat6 = new DielectricMaterial(this, 0.65, 0.15, 0.2,
+//			0.95, Color(0, 0, 0), Color(1, 1, 1), 2000, 1, 1.1, Color(1, 1, 1),
+//			Color(1, 1, 1));
+//	Primitive* purpleSphere = new Primitive(s5, mat6);
+////	purpleSphere->scale(1,1,2);
+//	primitives.push_back(purpleSphere);
 
 	//transparent sphere inside the other one
 //	Shape * s12 = new Sphere(Point(35, -15, 2), 8);
