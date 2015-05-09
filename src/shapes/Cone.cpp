@@ -26,12 +26,11 @@ bool Cone::intersect(const Ray& ray, float& tmin, Intersection& isct) const {
 		t = (-b - e) / denom;
 		if (t > EPSILON) {
 			tmin = t;
-//			isct.normal = Normalize(Normal());
 			isct.point = ray.o + t * ray.d;
-			if (isct.point.y > ymin || isct.point.y < ymax) {
-				return false;
+			if (!(isct.point.y > ymin || isct.point.y < ymax)) {
+//				isct.normal = Normalize(Normal());
+				return true;
 			}
-			return true;
 		}
 		t = (-b + e) / denom;
 		if (t > EPSILON) {

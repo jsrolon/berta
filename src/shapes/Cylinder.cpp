@@ -28,12 +28,11 @@ bool Cylinder::intersect(const Ray& ray, float& tmin,
 		if (t > EPSILON) {
 			tmin = t;
 			isct.point = ray.o + t * ray.d;
-			if (isct.point.y > ymin || isct.point.y < ymax) {
-				return false;
+			if (!(isct.point.y > ymin || isct.point.y < ymax)) {
+				isct.normal = Normalize(
+						Normal(isct.point.x / r, 0, isct.point.z / r));
+				return true;
 			}
-			isct.normal = Normalize(
-					Normal(isct.point.x / r, 0, isct.point.z / r));
-			return true;
 		}
 		t = (-b + e) / denom;
 		if (t > EPSILON) {

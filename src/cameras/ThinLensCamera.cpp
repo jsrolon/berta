@@ -42,6 +42,9 @@ void ThinLensCamera::render() {
 	// for each one of the pixels
 	for (int x = 0; x < hres; x++) {
 		for (int y = 0; y < vres; y++) {
+			if (x == 100 && y == 175) {
+				printf("omglol\n");
+			}
 			// loop over samples per pixel
 			for (int curSample = 0; curSample < sampler->numSamples;
 					curSample++) {
