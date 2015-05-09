@@ -31,12 +31,19 @@ Scene::Scene() {
 
 	background_color = Color(0, 0, 0);
 
+	// red cone
+	Shape* s15 = new Cone(0,-40);
+	PhongMaterial* mat15 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
+					50);
+	Primitive* redCone = new Primitive(s15, mat15);
+	primitives.push_back(redCone);
+
 	// red triangle
-	Shape * s14 = new Triangle(Point(0,-30,0), Point(0,0,15), Point(0, 0, -15));
-	PhongMaterial* mat14 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
-				50);
-	Primitive* redtriangle = new Primitive(s14, mat14);
-		primitives.push_back(redtriangle);
+//	Shape * s14 = new Triangle(Point(0,-30,0), Point(0,0,15), Point(0, 0, -15));
+//	PhongMaterial* mat14 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
+//				50);
+//	Primitive* redtriangle = new Primitive(s14, mat14);
+//		primitives.push_back(redtriangle);
 
 	//red cylindah
 //	Shape * s13 = new Cylinder(20, 0, -40);
