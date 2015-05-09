@@ -28,18 +28,22 @@ bool Cone::intersect(const Ray& ray, float& tmin, Intersection& isct) const {
 			tmin = t;
 			isct.point = ray.o + t * ray.d;
 			if (!(isct.point.y > ymin || isct.point.y < ymax)) {
-//				isct.normal = Normalize(Normal());
+				isct.normal = Normalize(
+						Normal(2 * isct.point.x, -2 * isct.point.y,
+								2 * isct.point.z));
 				return true;
 			}
 		}
 		t = (-b + e) / denom;
 		if (t > EPSILON) {
 			tmin = t;
-//			isct.normal = Normalize(Normal());
 			isct.point = ray.o + t * ray.d;
 			if (isct.point.y > ymin || isct.point.y < ymax) {
 				return false;
 			}
+			isct.normal = -Normalize(
+					Normal(2 * isct.point.x, -2 * isct.point.y,
+							2 * isct.point.z));
 			return true;
 		}
 	}
@@ -47,7 +51,8 @@ bool Cone::intersect(const Ray& ray, float& tmin, Intersection& isct) const {
 }
 
 bool Cone::shadow_hit(const Ray& ray, float& tmin) const {
-	return false;
+	Intersection isect;
+	return intersect(ray, tmin, isect);
 }
 
 Cone::~Cone() {

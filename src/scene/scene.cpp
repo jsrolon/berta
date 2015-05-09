@@ -16,27 +16,27 @@
  */
 Scene::Scene() {
 	film = new Film();
-	Point pp = Point(200, -70, 0); // camera position
+	Point pp = Point(200, -55, 0); // camera position
 	Point p2 = Point(0, 0, 0);
 	Vector v = Vector(0, 1, 0);
 	cam = new ThinLensCamera(film, this, pp, p2, v, 800, 3, 210, 1);
 
 	// Lights
 	ambientLight = new AmbientLight();
-	PointLight* dLight = new PointLight(Point(0, -40, 60), this); // uses radians
-	SpotLight* dLight2 = new SpotLight(Point(80, -40, 0), this, Point(), 0.8,
-			0.6); // uses radians
+	PointLight* dLight = new PointLight(Point(70, -50, -70), this); // uses radians
+//	SpotLight* dLight2 = new SpotLight(Point(60, -60, -40), this, Point(), 0.8,
+//			0.6); // uses radians
 	lights.push_back(dLight);
-	lights.push_back(dLight2);
+//	lights.push_back(dLight2);
 
 	background_color = Color(0, 0, 0);
 
 	// red cone
-	Shape* s15 = new Cone(0,-40);
-	PhongMaterial* mat15 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
-					50);
-	Primitive* redCone = new Primitive(s15, mat15);
-	primitives.push_back(redCone);
+//	Shape* s15 = new Cone(0,-40);
+//	PhongMaterial* mat15 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
+//					50);
+//	Primitive* redCone = new Primitive(s15, mat15);
+//	primitives.push_back(redCone);
 
 	// red triangle
 //	Shape * s14 = new Triangle(Point(0,-30,0), Point(0,0,15), Point(0, 0, -15));
@@ -62,11 +62,11 @@ Scene::Scene() {
 //	primitives.push_back(redSphere);
 //
 //	// blue sphere
-//	Shape * s2 = new Sphere(Point(-10, -10, 26), 8);
-//	ReflectiveMaterial* mat3 = new ReflectiveMaterial(this, 0.65, 0.15, 0.2,
-//			0.75, Color(0, 0, 1), Color(1, 1, 1), 50);
-//	Primitive * grrSphere = new Primitive(s2, mat3);
-//	primitives.push_back(grrSphere);
+	Shape * s2 = new Sphere(Point(10, -10, 26), 8);
+	ReflectiveMaterial* mat3 = new ReflectiveMaterial(this, 0.65, 0.15, 0.2,
+			0.75, Color(0, 0, 1), Color(1, 1, 1), 50);
+	Primitive * grrSphere = new Primitive(s2, mat3);
+	primitives.push_back(grrSphere);
 //
 //	// green sphere
 //	Shape * s3 = new Sphere(Point(0, -38, 0), 4);
@@ -85,13 +85,13 @@ Scene::Scene() {
 //	primitives.push_back(yellowSphere);
 //
 //	//transparent sphere
-//	Shape * s5 = new Sphere(Point(35, -15, 0), 15);
-//	DielectricMaterial* mat6 = new DielectricMaterial(this, 0.65, 0.15, 0.2,
-//			0.95, Color(0, 0, 0), Color(1, 1, 1), 2000, 1, 1.1, Color(1, 1, 1),
-//			Color(1, 1, 1));
-//	Primitive* purpleSphere = new Primitive(s5, mat6);
-////	purpleSphere->scale(1,1,2);
-//	primitives.push_back(purpleSphere);
+	Shape * s5 = new Sphere(Point(35, -15, -20), 15);
+	DielectricMaterial* mat6 = new DielectricMaterial(this, 0.65, 0.15, 0.2,
+			0.95, Color(0, 0, 0), Color(1, 1, 1), 2000, 1, 1.2, Color(1, 1, 1),
+			Color(1, 1, 1));
+	Primitive* purpleSphere = new Primitive(s5, mat6);
+//	purpleSphere->scale(1,1,2);
+	primitives.push_back(purpleSphere);
 //
 //	//transparent sphere inside the other one
 //	Shape * s12 = new Sphere(Point(35, -15, 2), 8);
@@ -103,19 +103,19 @@ Scene::Scene() {
 //	primitives.push_back(transSphere);
 //
 //	// faraway ellipsoid
-//	Shape * s11 = new Sphere(Point(-200, 0, -15), 25);
-//	PhongMaterial* mat11 = new PhongMaterial(this, 0.6, 0.15, 0.2,
-//			Color(0.2941, 0, 0.5098), 50);
-//	Primitive* farSphere = new Primitive(s11, mat11);
-////	farSphere->scale(1,1,2);
-//	primitives.push_back(farSphere);
+	Shape * s11 = new Sphere(Point(-200, 0, -70), 25);
+	PhongMaterial* mat11 = new PhongMaterial(this, 0.6, 0.15, 0.2,
+			Color(0.2941, 0, 0.5098), 50);
+	Primitive* farSphere = new Primitive(s11, mat11);
+//	farSphere->scale(1,1,2);
+	primitives.push_back(farSphere);
 //
 //	// create and add plane
-//	Shape* pl = new Plane();
-//	MatteMaterial* mat2 = new MatteMaterial(this, 0.65, 0.15,
-//			Color(0.8, 0.4, 0));
-//	Primitive* bluePlane = new Primitive(pl, mat2);
-//	primitives.push_back(bluePlane);
+	Shape* pl = new Plane();
+	MatteMaterial* mat2 = new MatteMaterial(this, 0.65, 0.15,
+			Color(0.8, 0.4, 0));
+	Primitive* bluePlane = new Primitive(pl, mat2);
+	primitives.push_back(bluePlane);
 }
 
 void Scene::render() {
