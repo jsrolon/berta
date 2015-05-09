@@ -24,10 +24,16 @@ Scene::Scene() {
 	// Lights
 	ambientLight = new AmbientLight();
 	PointLight* dLight = new PointLight(Point(70, -50, -70), this); // uses radians
-//	SpotLight* dLight2 = new SpotLight(Point(60, -60, -40), this, Point(), 0.8,
-//			0.6); // uses radians
+	SpotLight* dLight2 = new SpotLight(Point(-230, -60, -80), this,
+			Point(-230, 0, -70), 0.8, 0.6); // uses radians
+	SpotLight* dLight3 = new SpotLight(Point(0, -40, 60), this, Point(), 0.8,
+			0.6); // uses radians
+	SpotLight* dLight4 = new SpotLight(Point(120, -80, 25), this,
+			Point(120, -40, 10), 0.8, 0.6); // uses radians
 	lights.push_back(dLight);
-//	lights.push_back(dLight2);
+	lights.push_back(dLight2);
+	lights.push_back(dLight3);
+	lights.push_back(dLight4);
 
 	background_color = Color(0, 0, 0);
 
@@ -39,18 +45,19 @@ Scene::Scene() {
 //	primitives.push_back(redCone);
 
 	// red triangle
-//	Shape * s14 = new Triangle(Point(0,-30,0), Point(0,0,15), Point(0, 0, -15));
-//	PhongMaterial* mat14 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
-//				50);
-//	Primitive* redtriangle = new Primitive(s14, mat14);
-//		primitives.push_back(redtriangle);
+	Shape * s14 = new Triangle(Point(40, -30, 40), Point(40, 0, 35),
+			Point(40, 0, 55));
+	PhongMaterial* mat14 = new PhongMaterial(this, 0.6, 0.15, 0.2,
+			Color(1, 0, 0), 50);
+	Primitive* redtriangle = new Primitive(s14, mat14);
+	primitives.push_back(redtriangle);
 
 	//red cylindah
-//	Shape * s13 = new Cylinder(20, 0, -40);
-//	PhongMaterial* mat13 = new PhongMaterial(this, 0.6, 0.15, 0.2, Color(1, 0, 0),
-//			50);
-//	Primitive* redCylindah = new Primitive(s13, mat13);
-//	primitives.push_back(redCylindah);
+	Shape * s13 = new Cylinder(20, 0, -40);
+	ReflectiveMaterial* mat13 = new ReflectiveMaterial(this, 0.6, 0.15, 0.2, 0.75,
+			Color(1, 0, 0), Color(1,1,1), 500);
+	Instance* redCylindah = new Instance(s13, mat13);
+	primitives.push_back(redCylindah);
 
 //	// red sphere
 //	Shape * s = new Sphere();
@@ -69,20 +76,20 @@ Scene::Scene() {
 	primitives.push_back(grrSphere);
 //
 //	// green sphere
-//	Shape * s3 = new Sphere(Point(0, -38, 0), 4);
-//	ReflectiveMaterial* mat4 = new ReflectiveMaterial(this, 0.65, 0.15, 0.2,
-//			0.75, Color(0, 1, 0), Color(1, 1, 1), 2);
-//	Primitive* omgSphere = new Primitive(s3, mat4);
-////	omgSphere->rotatex(1); //rad
-////	omgSphere->scale(1,1,2);
-//	primitives.push_back(omgSphere);
+	Shape * s3 = new Sphere(Point(0, -45, 0), 4);
+	ReflectiveMaterial* mat4 = new ReflectiveMaterial(this, 0.65, 0.15, 0.2,
+			0.75, Color(0, 1, 0), Color(1, 1, 1), 2);
+	Primitive* omgSphere = new Primitive(s3, mat4);
+//	omgSphere->rotatex(1); //rad
+//	omgSphere->scale(1,1,2);
+	primitives.push_back(omgSphere);
 //
 //	// yellow sphere
-//	Shape * s4 = new Sphere(Point(28, 0, 0), 6);
-//	ReflectiveMaterial* mat5 = new ReflectiveMaterial(this, 0.65, 0.15, 0.2,
-//			0.75, Color(1, 1, 0), Color(1, 1, 1), 2);
-//	Primitive * yellowSphere = new Primitive(s4, mat5);
-//	primitives.push_back(yellowSphere);
+	Shape * s4 = new Sphere(Point(28, 0, 0), 6);
+	ReflectiveMaterial* mat5 = new ReflectiveMaterial(this, 0.65, 0.15, 0.2,
+			0.75, Color(1, 1, 0), Color(1, 1, 1), 2);
+	Primitive * yellowSphere = new Primitive(s4, mat5);
+	primitives.push_back(yellowSphere);
 //
 //	//transparent sphere
 	Shape * s5 = new Sphere(Point(35, -15, -20), 15);
@@ -94,26 +101,42 @@ Scene::Scene() {
 	primitives.push_back(purpleSphere);
 //
 //	//transparent sphere inside the other one
-//	Shape * s12 = new Sphere(Point(35, -15, 2), 8);
-//	DielectricMaterial* mat12 = new DielectricMaterial(this, 0.65, 0.15, 0.2,
-//			0.95, Color(0, 0, 0), Color(1, 1, 1), 2000, 1, 1.4, Color(0, 0, 1),
-//			Color(0, 0, 1));
-//	Primitive* transSphere = new Primitive(s12, mat12);
-//	//	purpleSphere->scale(1,1,2);
-//	primitives.push_back(transSphere);
+	Shape * s12 = new Sphere(Point(35, -15, -18), 8);
+	DielectricMaterial* mat12 = new DielectricMaterial(this, 0.65, 0.15, 0.2,
+			0.95, Color(0, 0, 0), Color(1, 1, 1), 2000, 1, 1.4, Color(0, 0, 1),
+			Color(0, 0, 1));
+	Primitive* transSphere = new Primitive(s12, mat12);
+	//	purpleSphere->scale(1,1,2);
+	primitives.push_back(transSphere);
 //
-//	// faraway ellipsoid
-	Shape * s11 = new Sphere(Point(-200, 0, -70), 25);
+//	// faraway sphere 1
+	Shape * s11 = new Sphere(Point(-230, 0, -70), 25);
 	PhongMaterial* mat11 = new PhongMaterial(this, 0.6, 0.15, 0.2,
 			Color(0.2941, 0, 0.5098), 50);
 	Primitive* farSphere = new Primitive(s11, mat11);
 //	farSphere->scale(1,1,2);
 	primitives.push_back(farSphere);
-//
+
+	// faraway yellow sphere
+	Shape * s16 = new Sphere(Point(-195, 0, -80), 6);
+	ReflectiveMaterial* mat16 = new ReflectiveMaterial(this, 0.65, 0.15, 0.2,
+			0.75, Color(1, 1, 0), Color(1, 1, 1), 2);
+	Primitive * yellowSphere2 = new Primitive(s16, mat16);
+	primitives.push_back(yellowSphere2);
+
+	// close transparent sphere
+	Shape * s17 = new Sphere(Point(120, -40, 10), 8);
+	DielectricMaterial* mat17 = new DielectricMaterial(this, 0.65, 0.15, 0.2,
+			0.95, Color(0, 0, 0), Color(1, 1, 1), 2000, 1, 1.4, Color(0, 0, 1),
+			Color(0, 0, 1));
+	Primitive* transSphere2 = new Primitive(s17, mat17);
+	//	purpleSphere->scale(1,1,2);
+	primitives.push_back(transSphere2);
+
 //	// create and add plane
 	Shape* pl = new Plane();
-	MatteMaterial* mat2 = new MatteMaterial(this, 0.65, 0.15,
-			Color(0.8, 0.4, 0));
+	ReflectiveMaterial* mat2 = new ReflectiveMaterial(this, 0.65, 0.15, 0.2,
+			0.4, Color(0.8, 0.4, 0), Color(1, 1, 1), 300);
 	Primitive* bluePlane = new Primitive(pl, mat2);
 	primitives.push_back(bluePlane);
 }
